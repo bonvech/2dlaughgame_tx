@@ -10,6 +10,8 @@ public:
     inline VOID collapse();
     inline VOID expand();
     inline VOID check_keys();
+    inline DWORD get_xsze();
+    inline DWORD get_ysze();
 };
 
 Window::Window()
@@ -56,4 +58,7 @@ inline VOID Window::check_keys()
     else if(GetAsyncKeyState(VK_F2) & 0x8000)
         expand();
 }
+
+inline DWORD Window::get_xsze() { return txGetExtentX(txDC()); }
+inline DWORD Window::get_ysze() { return txGetExtentY(txDC()); }
 #endif // WINDOW_H

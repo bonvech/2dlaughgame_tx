@@ -14,9 +14,9 @@ public:
     Sound();
     Sound(const LPCSTR wav_file_name, BOOL wav_dntload);
     ~Sound();
-    VOID error_handler();
-    VOID play(float plng_speed, BOOL repeat, float volume);
-    VOID stop();
+    inline VOID error_handler();
+    inline VOID play(float plng_speed, BOOL repeat, float volume);
+    inline VOID stop();
 };
 
 Sound::Sound() :
@@ -36,7 +36,7 @@ Sound::~Sound()
     sound->stop();
 }
 
-VOID Sound::error_handler()
+inline VOID Sound::error_handler()
 {
     if(!device)
     {
@@ -50,7 +50,7 @@ VOID Sound::error_handler()
     }
 }
 
-VOID Sound::play(float plng_speed, BOOL repeat, float volume)
+inline VOID Sound::play(float plng_speed, BOOL repeat, float volume)
 {
     sound->setVolume(volume);
     sound->setRepeat(repeat);
@@ -58,7 +58,7 @@ VOID Sound::play(float plng_speed, BOOL repeat, float volume)
     sound->play();
 }
 
-VOID Sound::stop() { sound->stop(); }
+inline VOID Sound::stop() { sound->stop(); }
 
 
 
